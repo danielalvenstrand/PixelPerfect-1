@@ -1,0 +1,169 @@
+/* mobile first */
+
+html { box-sizing: border-box }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family: Arial, Geneva, sans-serif;
+  font-size: 11px;
+}
+
+a {	color: #2772B0; }
+
+input:focus, button:focus { outline: none; }
+
+div img {
+	width: 100%;
+	max-width: 250px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 968px;
+  margin: 0 auto;
+}
+
+header {
+  background: #3f5254 url(header-bg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 67.5%;
+  padding: 25px 0;
+}
+
+header h1 {
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-family: Arial Black;
+  text-shadow: 0 1px 10px #000000aa;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+header input, header button {
+  border: none;
+  width: 100%;
+  padding: 16px;
+}
+
+header button {
+  background-color: #dce0ca;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+
+header input { background-color: #fff; }
+
+header button:hover { background-color: #c4d08a; }
+
+ul#todo-list { list-style-type: none; }
+
+ul#todo-list li {
+  background-color: #fafafa;
+  transition: 300ms all ease;
+}
+
+ul#todo-list li:nth-child(odd) { background-color: #f0f0f0; }
+
+ul#todo-list li.todo-done {
+  background-color: #aaa;
+}
+
+ul#todo-list li > * {
+  display: inline-block;
+  padding: 16px;
+  font-size: 16px;
+}
+
+ul#todo-list li > button {
+  background: none;
+  border: none;
+  float: right;
+}
+
+ul#todo-list li p {
+  transition: 300ms color ease;
+}
+
+ul#todo-list li.todo-done p {
+  text-decoration: line-through;
+  color: white;
+}
+
+footer {
+  background: #f6f6f6;
+  font-size: 16px;
+  padding: 16px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+/* grid system */
+
+.row::after {
+    content:"";
+    display: table;
+    clear:both;
+}
+[class*='col-'] {
+	width: 92%;
+	margin-left: 4%;
+	margin-right: 4%;
+	min-height: 1px;
+}
+
+/* media queries */
+
+/* Mobile Landscape Screen Sizes */
+@media only screen and (min-width: 480px)  {
+  header h1 {
+    font-size: 60px;
+  }
+	[class*='col-'] {
+		margin-right: 0;
+		min-height: 1px;
+		float: left;
+	}
+	.col-1,
+	.col-2 {
+		width: 44%;
+	}
+  .col-1-1,
+	.col-3,
+  .col-3-1,
+	.col-4 {
+		width: 92%;
+	}
+
+}
+/* Desktop screen Sizes */
+@media only screen and (min-width: 768px) {
+  header h1 { font-size: 80px; }
+
+	.col-1 { width: 20%; }
+	.col-2 { width: 44%; }
+	.col-3 { width: 68%; }
+	.col-4 { width: 92%; }
+
+  /* special case for input field */
+  .col-1-1 {
+    width: 12%;
+    margin-left: 0; /* resetting the margin */
+  }
+  .col-3-1 {
+    width: 80%;
+    margin-right: 0; /* resetting the margin */
+  }
+  /* end of special case for input field */
+}
